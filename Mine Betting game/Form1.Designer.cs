@@ -62,6 +62,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.BallanceValueLabel = new System.Windows.Forms.Label();
             this.ResetButton = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.ThreeXmultiplier = new System.Windows.Forms.Button();
+            this.TwoXmultiplier = new System.Windows.Forms.Button();
+            this.OneXmultiplier = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -419,7 +423,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(24, 458);
+            this.label2.Location = new System.Drawing.Point(17, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(129, 24);
             this.label2.TabIndex = 4;
@@ -427,6 +431,7 @@
             // 
             // BetAmmountBox
             // 
+            this.BetAmmountBox.ForeColor = System.Drawing.Color.Black;
             this.BetAmmountBox.FormattingEnabled = true;
             this.BetAmmountBox.Items.AddRange(new object[] {
             "1",
@@ -436,7 +441,7 @@
             "20",
             "50",
             "100"});
-            this.BetAmmountBox.Location = new System.Drawing.Point(28, 485);
+            this.BetAmmountBox.Location = new System.Drawing.Point(21, 61);
             this.BetAmmountBox.Name = "BetAmmountBox";
             this.BetAmmountBox.Size = new System.Drawing.Size(121, 21);
             this.BetAmmountBox.TabIndex = 5;
@@ -465,7 +470,7 @@
             // ResetButton
             // 
             this.ResetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ResetButton.Location = new System.Drawing.Point(28, 137);
+            this.ResetButton.Location = new System.Drawing.Point(23, 236);
             this.ResetButton.Name = "ResetButton";
             this.ResetButton.Size = new System.Drawing.Size(121, 51);
             this.ResetButton.TabIndex = 8;
@@ -473,11 +478,61 @@
             this.ResetButton.UseVisualStyleBackColor = true;
             this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(17, 352);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(148, 24);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Cash Multiplier";
+            // 
+            // ThreeXmultiplier
+            // 
+            this.ThreeXmultiplier.BackgroundImage = global::Mine_Betting_game.Properties.Resources.three;
+            this.ThreeXmultiplier.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ThreeXmultiplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ThreeXmultiplier.Location = new System.Drawing.Point(39, 486);
+            this.ThreeXmultiplier.Name = "ThreeXmultiplier";
+            this.ThreeXmultiplier.Size = new System.Drawing.Size(94, 47);
+            this.ThreeXmultiplier.TabIndex = 12;
+            this.ThreeXmultiplier.UseVisualStyleBackColor = true;
+            this.ThreeXmultiplier.Click += new System.EventHandler(this.ThreeXmultiplier_Click);
+            // 
+            // TwoXmultiplier
+            // 
+            this.TwoXmultiplier.BackgroundImage = global::Mine_Betting_game.Properties.Resources.Untitled;
+            this.TwoXmultiplier.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.TwoXmultiplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TwoXmultiplier.Location = new System.Drawing.Point(39, 435);
+            this.TwoXmultiplier.Name = "TwoXmultiplier";
+            this.TwoXmultiplier.Size = new System.Drawing.Size(94, 47);
+            this.TwoXmultiplier.TabIndex = 11;
+            this.TwoXmultiplier.UseVisualStyleBackColor = true;
+            this.TwoXmultiplier.Click += new System.EventHandler(this.TwoXmultiplier_Click);
+            // 
+            // OneXmultiplier
+            // 
+            this.OneXmultiplier.BackgroundImage = global::Mine_Betting_game.Properties.Resources.one;
+            this.OneXmultiplier.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.OneXmultiplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OneXmultiplier.Location = new System.Drawing.Point(39, 382);
+            this.OneXmultiplier.Name = "OneXmultiplier";
+            this.OneXmultiplier.Size = new System.Drawing.Size(94, 47);
+            this.OneXmultiplier.TabIndex = 10;
+            this.OneXmultiplier.UseVisualStyleBackColor = true;
+            this.OneXmultiplier.Click += new System.EventHandler(this.OneXmultiplier_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(852, 566);
+            this.Controls.Add(this.ThreeXmultiplier);
+            this.Controls.Add(this.TwoXmultiplier);
+            this.Controls.Add(this.OneXmultiplier);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.ResetButton);
             this.Controls.Add(this.BallanceValueLabel);
             this.Controls.Add(this.label3);
@@ -532,6 +587,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label BallanceValueLabel;
         private System.Windows.Forms.Button ResetButton;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button OneXmultiplier;
+        private System.Windows.Forms.Button TwoXmultiplier;
+        private System.Windows.Forms.Button ThreeXmultiplier;
     }
 }
 

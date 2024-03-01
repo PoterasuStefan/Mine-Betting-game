@@ -15,7 +15,7 @@ namespace Mine_Betting_game
         private int[] num;
         int BetAmmountValue = 0;
         double CurrentValue = 0;
-        bool Game_Lost = false;
+        bool Game_Lost = false, Game_Started = false;
         double BallanceValue = 10;
         public Form1()
         {
@@ -29,7 +29,7 @@ namespace Mine_Betting_game
             ResetButton.Visible = false;
             Random rnd = new Random();
 
-            for (int i = 0; i < RiskLevel; i++) // corrected loop initialization
+            for (int i = 0; i < RiskLevel; i++) 
             {
                 num[i] = rnd.Next(2, 27);
             }
@@ -38,14 +38,33 @@ namespace Mine_Betting_game
                 button.Click += Button_Click;
             }
             BallanceValueLabel.Text = BallanceValue.ToString();
+
+            OneXmultiplier.FlatAppearance.BorderColor = Color.Black;
+            TwoXmultiplier.FlatAppearance.BorderColor = Color.Black;
+            ThreeXmultiplier.FlatAppearance.BorderColor = Color.Black;
+            
         }
 
-        
+
 
         private void Button_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
             // Check if the clicked button is a "mine" button
+            if(Game_Started == false && BetAmmountValue > 0)
+            {
+                Game_Started = true;
+                BallanceValue -= BetAmmountValue;
+                BallanceValueLabel.Text = BallanceValue.ToString();
+                BetAmmountBox.Enabled = false;
+            }
+
+            if (button.Text=="?" && BetAmmountValue<=0)
+            {
+                MessageBox.Show("Please select a bet value first");
+            }
+           
+
             for (int i = 0; i < RiskLevel; i++)
             {
                 if (button.Name == "button" + num[i])
@@ -74,9 +93,6 @@ namespace Mine_Betting_game
                 if (betAmount <= BallanceValue)
                 {
                     BetAmmountValue = int.Parse(BetAmmountBox.Text);
-                    BallanceValue -= betAmount;
-                    BallanceValueLabel.Text = BallanceValue.ToString();
-                    BetAmmountBox.Enabled = false;
                 }
                 else
                 {
@@ -107,6 +123,7 @@ namespace Mine_Betting_game
             }
             CurrentValue = 0;
             Game_Lost = false;
+            Game_Started = false;
             CurrentValueLabel.Text = CurrentValue.ToString();
 
             if (BetAmmountValue > BallanceValue)
@@ -114,10 +131,61 @@ namespace Mine_Betting_game
                 BetAmmountValue = 0;
                 BetAmmountBox.Text = "";
             }
-            else
+           
+        }
+
+        private void OneXmultiplier_Click(object sender, EventArgs e)
+        {
+            if (Game_Started==false)
             {
-                BallanceValue -= BetAmmountValue;
-                BallanceValueLabel.Text = BallanceValue.ToString();
+                RiskLevel = 1;
+                OneXmultiplier.FlatAppearance.BorderColor = Color.Red;
+                TwoXmultiplier.FlatAppearance.BorderColor = Color.Black;
+                ThreeXmultiplier.FlatAppearance.BorderColor = Color.Black;
+                num = new int[RiskLevel];
+                Random rnd = new Random();
+
+                for (int i = 0; i < RiskLevel; i++)
+                {
+                    num[i] = rnd.Next(2, 27);
+                }
+            }
+        }
+
+        private void TwoXmultiplier_Click(object sender, EventArgs e)
+        {
+            if (Game_Started == false)
+            {
+                RiskLevel = 2;
+                TwoXmultiplier.FlatAppearance.BorderColor = Color.Red;
+                OneXmultiplier.FlatAppearance.BorderColor = Color.Black;
+                ThreeXmultiplier.FlatAppearance.BorderColor = Color.Black;
+                num = new int[RiskLevel];
+                Random rnd = new Random();
+
+                for (int i = 0; i < RiskLevel; i++)
+                {
+                    num[i] = rnd.Next(2, 27);
+                }
+
+            }
+        }
+
+        private void ThreeXmultiplier_Click(object sender, EventArgs e)
+        {
+            if (Game_Started == false)
+            {
+                RiskLevel = 3;
+                ThreeXmultiplier.FlatAppearance.BorderColor = Color.Red;
+                OneXmultiplier.FlatAppearance.BorderColor = Color.Black;
+                TwoXmultiplier.FlatAppearance.BorderColor = Color.Black;
+                num = new int[RiskLevel];
+                Random rnd = new Random();
+
+                for (int i = 0; i < RiskLevel; i++)
+                {
+                    num[i] = rnd.Next(2, 27);
+                }
             }
         }
 
@@ -125,7 +193,7 @@ namespace Mine_Betting_game
         {
             BoardReset();
             ResetButton.Visible = false;
-            
         }
+
     }
 }
